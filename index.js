@@ -16,13 +16,17 @@ exports.handler = async function () {
     database_id: "d2194450505742bea642149fb7aecab2",
     filter: {
       property: "作成日時",
-      text: {
-        equals: "2021-07-28",
+      date: {
+        equals: "2021-07-23",
       },
     },
   });
 
-  console.log(myPage);
+  const results = myPage.results;
+  results.map((result) => {
+    console.log(result.properties["論文名"].title[0].text.content);
+  });
+  console.log(myPage.results[1].properties["論文名"].title[0].text.content);
   console.log("a");
   return response;
 };
