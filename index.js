@@ -39,6 +39,12 @@ exports.handler = async function () {
   });
   console.log(myPage.results[1].properties["論文名"].title[0].text.content);
   console.log("a");
-  axios(process.env.WEBHOOK_URL, config);
+  axios(process.env.WEBHOOK_URL, config)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
   return response;
 };
