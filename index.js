@@ -40,7 +40,7 @@ exports.handler = async function () {
     const tagList = [];
     const tags = result.properties["タグ"].multi_select;
     tags.map((tag) => {
-      tagList.push(tag.name + " ");
+      tagList.push(" " + tag.name + " ");
     });
     titleList.push(
       "・【" + result.properties["作成者"].created_by.name + "】 <" + result.url + "|" + result.properties["論文名"].title[0].text.content + "> (" + tagList + ")"
