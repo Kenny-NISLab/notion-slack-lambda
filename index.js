@@ -37,7 +37,7 @@ exports.handler = async function () {
 
   const results = myPage.results;
   results.map((result) => {
-    titleList.push(result.properties["論文名"].title[0].text.content);
+    titleList.push("<" + result.url + "|" + result.properties["論文名"].title[0].text.content + ">");
     console.log(result.properties["論文名"].title[0].text.content);
   });
 
