@@ -37,13 +37,14 @@ exports.handler = async function () {
   const results = myPage.results;
   titleList.push("昨日作成された論文");
   results.map((result) => {
-    const tagList = [];
-    const tags = result.properties["タグ"].multi_select;
-    tags.map((tag) => {
-      tagList.push(" " + tag.name + " ");
-    });
+    // const tagList = [];
+    // const tags = result.properties["タグ"].multi_select;
+    // tags.map((tag) => {
+    //   tagList.push(" " + tag.name + " ");
+    // });
     titleList.push(
-      "・【" + result.properties["作成者"].created_by.name + "】 <" + result.url + "|" + result.properties["論文名"].title[0].text.content + "> (" + tagList + ")"
+      // "・【" + result.properties["作成者"].created_by.name + "】 <" + result.url + "|" + result.properties["論文名"].title[0].text.content + "> (" + tagList + ")"
+      "・【" + result.properties["作成者"].created_by.name + "】 <" + result.url + "|" + result.properties["論文名"].title[0].text.content + ">"
     );
     console.log(result.properties["論文名"].title[0].text.content);
   });
