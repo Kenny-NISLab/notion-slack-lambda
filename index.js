@@ -23,5 +23,6 @@ export async function handler() {
   });
 
   console.log(myPage);
+  console.log('a');
   return response;
 }
