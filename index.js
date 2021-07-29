@@ -12,7 +12,7 @@ const config = {
     "Content-Type": "application/json",
   },
   data: {
-    text: "Hello",
+    text: "",
   },
 };
 
@@ -33,18 +33,26 @@ exports.handler = async function () {
     },
   });
 
+  const titleList = [];
+
   const results = myPage.results;
   results.map((result) => {
+    titleList.push(result.properties["論文名"].title[0].text.content);
     console.log(result.properties["論文名"].title[0].text.content);
   });
+
+  config.data.text = titleList.join("\n");
+
   console.log(myPage.results[1].properties["論文名"].title[0].text.content);
   console.log("a");
-  axios(process.env.WEBHOOK_URL, config)
+
+  await axios(process.env.WEBHOOK_URL, config)
     .then(function (response) {
       console.log(response);
     })
     .catch(function (error) {
       console.error(error);
     });
+
   return response;
 };
