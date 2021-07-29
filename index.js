@@ -37,12 +37,12 @@ exports.handler = async function () {
   const tagList = [];
 
   const results = myPage.results;
-  const tags = results.properties["分野"].multi_select;
-  tags.map((tag) => {
-    tagList.push(tag.name);
-  });
   titleList.push("昨日作成された論文");
   results.map((result) => {
+    const tags = result.properties["タグ"].multi_select;
+    tags.map((tag) => {
+      tagList.push(tag.name);
+    });
     titleList.push(
       "・【" +
       result.properties["作成者"].created_by.name +
