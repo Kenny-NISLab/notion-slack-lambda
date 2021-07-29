@@ -1,9 +1,10 @@
-import { Client } from './node_modules/@notionhq/client';
+import axios from 'axios';
 
-// Initializing a client
-const notion = new Client({
-  auth: process.env.NOTION_TOKEN,
-});
+const config = {
+  headers: {
+    Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
+  },
+};
 
 export async function handler() {
   // TODO implement
@@ -12,17 +13,20 @@ export async function handler() {
     body: JSON.stringify('Hello from Lambda!'),
   };
 
-  const myPage = await notion.databases.query({
-    database_id: 'd2194450505742bea642149fb7aecab2',
-    filter: {
-      property: '作成日時',
-      text: {
-        equals: '2021-07-28',
-      },
-    },
+  axios.get('https://api.notion.com/v1/databases/d2194450505742bea642149fb7aecab2', config).then(function (response) {
+    console.log(response);
   });
 
-  console.log(myPage);
+  // const myPage = await notion.databases.query({
+  //   database_id: 'd2194450505742bea642149fb7aecab2',
+  //   filter: {
+  //     property: '作成日時',
+  //     text: {
+  //       equals: '2021-07-28',
+  //     },
+  //   },
+  // });
+
   console.log('a');
   return response;
 }
