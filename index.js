@@ -36,7 +36,7 @@ exports.handler = async function () {
   const titleList = [];
   const tagList = [];
 
-  const tags = myPage.results.properties["タグ"].multi_select;
+  const tags = myPage.results.properties["分野"].multi_select;
   tags.map((tag) => {
     tagList.push(tag.name);
   });
