@@ -1,4 +1,4 @@
-const { Client } = require('@notionhq/client');
+import { Client } from './node_modules/@notionhq/client';
 
 // Initializing a client
 const notion = new Client({
