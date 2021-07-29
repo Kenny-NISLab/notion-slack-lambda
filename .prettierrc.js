@@ -3,7 +3,7 @@ module.exports = {
   // "tabWidth": 2,
   // "useTabs": false,
   // "semi": true,
-  singleQuote: true, // Default false
+  // singleQuote: true, // Default false
   // "quoteProps": "as-needed",
   // "jsxSingleQuote": false,
   // "trailingComma": "none",

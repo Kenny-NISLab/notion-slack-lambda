@@ -5,16 +5,17 @@ module.exports = {
     es6: true,
   },
   parserOptions: {
-    sourceType: 'module', // Default script
-    ecmaVersion: 2017,
+    sourceType: "module", // Default script
+    ecmaVersion: 2021,
   },
-  plugins: ['prettier'],
-  extends: ['eslint:recommended', 'prettier'],
+  plugins: ["prettier"],
+  extends: ["eslint:recommended", "prettier"],
   rules: {
-    'prettier/prettier': [
-      'error',
+    "prettier/prettier": [
+      "error",
       {
         printWidth: 150,
+        singleQuote: false,
       },
     ],
   },

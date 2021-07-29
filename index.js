@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require("axios");
 
 const config = {
   headers: {
@@ -6,14 +6,14 @@ const config = {
   },
 };
 
-export async function handler() {
+exports.handler = () => {
   // TODO implement
   const response = {
     statusCode: 200,
-    body: JSON.stringify('Hello from Lambda!'),
+    body: JSON.stringify("Hello from Lambda!"),
   };
 
-  axios.get('https://api.notion.com/v1/databases/d2194450505742bea642149fb7aecab2', config).then(function (response) {
+  axios.get("https://api.notion.com/v1/databases/d2194450505742bea642149fb7aecab2", config).then(function (response) {
     console.log(response);
   });
 
@@ -27,6 +27,6 @@ export async function handler() {
   //   },
   // });
 
-  console.log('a');
+  console.log("a");
   return response;
-}
+};
