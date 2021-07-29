@@ -4,5 +4,6 @@ exports.handler = async () => {
     statusCode: 200,
     body: JSON.stringify('Hello from Lambda!'),
   };
+  console.log('a');
   return response;
 };
