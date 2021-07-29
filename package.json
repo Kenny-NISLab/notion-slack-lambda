@@ -15,6 +15,7 @@
     "prettier": "^2.2.1"
   },
   "dependencies": {
+    "@notionhq/client": "^0.2.3",
     "request": "^2.88.2"
   }
 }
