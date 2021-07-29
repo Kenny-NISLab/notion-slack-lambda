@@ -1,0 +1,20 @@
+{
+  "name": "notion-slack-lambda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write '**/*.{html,css,js,json,md}'",
+    "lint": "eslint --fix",
+    "fix": "npm run format && npm run lint"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
