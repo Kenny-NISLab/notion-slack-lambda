@@ -25,7 +25,9 @@ exports.handler = async function () {
   // };
 
   const yesterday = moment().add(-1, "days").format("YYYY-MM-DD");
+  const timezone_check = moment().add(-1, "days").format("YYYY-MM-DD HH:mm:ss");
   console.log(yesterday);
+  console.log(timezone_check);
 
   const myPage = await notion.databases.query({
     database_id: "d2194450505742bea642149fb7aecab2",
