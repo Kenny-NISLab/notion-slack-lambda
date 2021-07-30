@@ -1,28 +1,29 @@
 const { Client } = require("@notionhq/client");
 const axios = require("axios");
+const moment = require("moment");
 
 // Initializing a client
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
 
-// Dateをフォーマットする関数
-function formatDate(date, format) {
-  format = format.replace(/yyyy/g, date.getFullYear());
-  format = format.replace(/MM/g, ("0" + (date.getMonth() + 1)).slice(-2));
-  format = format.replace(/dd/g, ("0" + date.getDate()).slice(-2));
-  format = format.replace(/HH/g, ("0" + date.getHours()).slice(-2));
-  format = format.replace(/mm/g, ("0" + date.getMinutes()).slice(-2));
-  format = format.replace(/ss/g, ("0" + date.getSeconds()).slice(-2));
-  format = format.replace(/SSS/g, ("00" + date.getMilliseconds()).slice(-3));
-  return format;
-}
+// // Dateをフォーマットする関数
+// function formatDate(date, format) {
+//   format = format.replace(/yyyy/g, date.getFullYear());
+//   format = format.replace(/MM/g, ("0" + (date.getMonth() + 1)).slice(-2));
+//   format = format.replace(/dd/g, ("0" + date.getDate()).slice(-2));
+//   format = format.replace(/HH/g, ("0" + date.getHours()).slice(-2));
+//   format = format.replace(/mm/g, ("0" + date.getMinutes()).slice(-2));
+//   format = format.replace(/ss/g, ("0" + date.getSeconds()).slice(-2));
+//   format = format.replace(/SSS/g, ("00" + date.getMilliseconds()).slice(-3));
+//   return format;
+// }
 
-// 今日の日付を取得
-let date = new Date();
-date.setDate(date.getDate() - 1);
-const yesterday = formatDate(date, "yyyy-MM-dd");
-console.log(yesterday);
+// // 今日の日付を取得
+// let date = new Date();
+// date.setDate(date.getDate() - 1);
+// const yesterday = formatDate(date, "yyyy-MM-dd");
+// console.log(yesterday);
 
 const config = {
   method: "POST",
@@ -40,6 +41,8 @@ exports.handler = async function () {
   //   statusCode: 200,
   //   body: JSON.stringify("Hello from Lambda!"),
   // };
+
+  const yesterday = moment().add(-1, "days").format("YYYY-MM-DD");
 
   const myPage = await notion.databases.query({
     database_id: "d2194450505742bea642149fb7aecab2",
