@@ -6,6 +6,24 @@ const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
 
+// Dateをフォーマットする関数
+function formatDate(date, format) {
+  format = format.replace(/yyyy/g, date.getFullYear());
+  format = format.replace(/MM/g, ("0" + (date.getMonth() + 1)).slice(-2));
+  format = format.replace(/dd/g, ("0" + date.getDate()).slice(-2));
+  format = format.replace(/HH/g, ("0" + date.getHours()).slice(-2));
+  format = format.replace(/mm/g, ("0" + date.getMinutes()).slice(-2));
+  format = format.replace(/ss/g, ("0" + date.getSeconds()).slice(-2));
+  format = format.replace(/SSS/g, ("00" + date.getMilliseconds()).slice(-3));
+  return format;
+}
+
+// 今日の日付を取得
+let date = new Date();
+date.setDate(date.getDate() - 1);
+const yesterday = formatDate(date, "yyyy-MM-dd");
+console.log(yesterday);
+
 const config = {
   method: "POST",
   headers: {
