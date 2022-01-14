@@ -44,7 +44,7 @@ exports.handler = async function () {
   if (results.length) {
     config.data = await create_message(results);
   } else {
-    config.data = await create_nonpage_message();
+    // config.data = await create_nonpage_message();
   }
 
   console.log("config.data:", config.data);
